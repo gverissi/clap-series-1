@@ -9,7 +9,14 @@
  */
 
 function increment(number) {
-  // CODE HERE
+	
+	if (typeof(number) === "number") {
+		return number + 1
+	}
+	else {
+		return number + " doit être un nombre !"
+	}
+	
 }
 
 export { increment };
