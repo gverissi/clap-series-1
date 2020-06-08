@@ -15,8 +15,9 @@ function isAPair(cards) {
 	let hand = []
 	cards.forEach(card => {
 		let value = card.charAt(0)
+		if (value == "1") value = value + "0"
 		hand.push(value);
-	});
+	})
 
 	for (var i = 0; i < hand.length; i++) {
 		let value1 = hand[i]

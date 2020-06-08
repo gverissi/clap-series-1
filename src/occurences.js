@@ -28,7 +28,28 @@ const CARDS = {
 }
 
 function occurences(cards) {
-  // CODE HERE
+
+	// Get the value and init the count for each different value
+	let hand = []
+	let count = new Object()
+	cards.forEach(card => {
+		let value = card.charAt(0)
+		if (value == "1") value = value + "0"
+		hand.push(value)
+		const key = Object.keys(CARDS)[Object.values(CARDS).indexOf(value)]
+		count[key] = 0
+	})
+	
+	// Counts the identical values
+	hand.forEach(card => {
+		for (let [key, value] of Object.entries(CARDS)) {
+			if (value == card) {
+				count[key] +=1
+				break
+			}
+		}
+	})
+	return count
 }
 
 export { occurences };
