@@ -11,7 +11,26 @@
  */
 
 function isAPair(cards) {
-  // CODE HERE
+
+	let hand = []
+	cards.forEach(card => {
+		let value = card.charAt(card)
+		hand.push(value);
+	});
+
+	for (var i = 0; i <= hand.length; i++) {
+		let value1 = hand[i]
+		for (var j = 0; j <= hand.length; j++) {
+			if ( j != i) {
+				let value2 = hand[j]
+				if ( value1 === value2) {
+					return true
+				}
+			}
+		}
+	}
+	return false
+
 }
 
 export { isAPair };
