@@ -11,7 +11,29 @@
  */
 
 function isAFlush(cards) {
-  // CODE HERE
+
+	// Get the type
+	let hand = []
+	cards.forEach(card => {
+		let type = card.charAt(card.length-1)
+		hand.push(type);
+	});
+
+	// Check for a flush
+	let types = ["d", "c", "h", "s"]
+	let count = {"d": 0, "c": 0, "h": 0, "s": 0}
+	for (var j = 0; j < types.length; j++) {
+		let type = types[j]
+		for (var i = 0; i < hand.length; i++) {
+			if ( type === hand[i]) {
+				count[type] += 1
+				if (count[type] > 4) {
+					return true
+				}
+			}
+		}
+	}
+	return false
 }
 
 export { isAFlush };
