@@ -8,7 +8,7 @@
  */
 
 function discount(price, percent) {
-  // CODE HERE
+	return price * (1 - percent / 100) + " €"
 }
 
 export { discount };
