@@ -10,7 +10,49 @@
  * On considère que la valeur de la carte prime sur le type de la carte
  */
 function orderCards(cards) {
-  // CODE HERE
+	
+	return cards.sort(compare)
+
 }
 
-export { orderCards };
+function compare(card1, card2) {
+	if (getValue(card1) > getValue(card2)) return -1
+	else if (getValue(card1) < getValue(card2)) return 1
+	else {
+		if (getType(card1) > getType(card2)) return -1
+		else return 1
+	}
+}
+
+function getValue(card) {
+	let value = card.charAt(0)
+	if (value == "1") value = value + "0"
+	switch (value) {
+		case "J":
+			return 11
+		case "Q":
+			return 12
+		case 'K':
+			return 13
+		case 'A':
+			return 14
+		default:
+			return Number(value)
+	}
+}
+
+function getType(card) {
+	let type = card.charAt(card.length-1)
+	switch (type) {
+		case "d":
+			return 1
+		case "c":
+			return 2
+		case 'h':
+			return 3
+		case 's':
+			return 4
+	}
+}
+
+export { orderCards }
