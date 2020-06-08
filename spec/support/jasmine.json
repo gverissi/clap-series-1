@@ -1,7 +1,7 @@
 {
   "spec_dir": "spec",
   "spec_files": [
-    "**/discountSpec.js"
+    "**/funnyArraySpec.js"
   ],
   "helpers": [
     "helpers/**/*.js"

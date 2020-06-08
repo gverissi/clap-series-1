@@ -11,7 +11,24 @@
  * - Si le tableau est vide, je retourne le mot 'rien'
  */
 function funnyArray(ary) {
-  // CODE HERE
+
+	let size = ary.length
+	
+	// Empty array
+	if (size === 0) {
+		return "rien"
+	}
+	// Pair
+	else if (size % 2 == 0) {
+		let index = size / 2 - 1
+		return ary[index] + ary[index + 1]
+	}
+	// Impair
+	else {
+		let index = (size - 1) / 2
+		return ary[index]
+	}
+
 }
 
 export { funnyArray };
