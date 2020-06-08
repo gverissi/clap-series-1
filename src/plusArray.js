@@ -6,7 +6,10 @@
  * alors plusArray(arr1, arr2) retournera 30 
  */
 function plusArray(arr1, arr2) {
-  // CODE HERE
+	const arr = arr1.concat(arr2)
+	const reducer = (accumulator, currentValue) => accumulator + currentValue
+	
+	return arr.reduce(reducer)
 }
 
 export { plusArray };
