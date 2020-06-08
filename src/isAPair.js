@@ -18,9 +18,9 @@ function isAPair(cards) {
 		hand.push(value);
 	});
 
-	for (var i = 0; i <= hand.length; i++) {
+	for (var i = 0; i < hand.length; i++) {
 		let value1 = hand[i]
-		for (var j = 0; j <= hand.length; j++) {
+		for (var j = 0; j < hand.length; j++) {
 			if ( j != i) {
 				let value2 = hand[j]
 				if ( value1 === value2) {
