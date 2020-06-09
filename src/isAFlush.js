@@ -25,7 +25,7 @@ function isAFlush(cards) {
 	for (var j = 0; j < types.length; j++) {
 		let type = types[j]
 		for (var i = 0; i < hand.length; i++) {
-			if ( type === hand[i]) {
+			if (type === hand[i]) {
 				count[type] += 1
 				if (count[type] > 4) {
 					return true

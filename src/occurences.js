@@ -11,6 +11,9 @@
  *
  */
 
+ 
+import { getCardsValue, nbOccurences } from "../src/partials";
+
 const CARDS = {
   as: "A",
   king: "K",
@@ -27,29 +30,45 @@ const CARDS = {
   two: "2"
 }
 
+const  VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+
 function occurences(cards) {
 
-	// Get the value and init the count for each different value
-	let hand = []
-	let count = new Object()
-	cards.forEach(card => {
-		let value = card.charAt(0)
-		if (value == "1") value = value + "0"
-		hand.push(value)
-		const key = Object.keys(CARDS)[Object.values(CARDS).indexOf(value)]
-		count[key] = 0
-	})
+	// // Method 1
+
+	// // Get the value and init the count for each different value
+	// let hand = []
+	// let count = new Object()
+	// cards.forEach(card => {
+	// 	let value = card.charAt(0)
+	// 	if (value == "1") value = value + "0"
+	// 	hand.push(value)
+	// 	const key = Object.keys(CARDS)[Object.values(CARDS).indexOf(value)]
+	// 	count[key] = 0
+	// })
 	
-	// Counts the identical values
-	hand.forEach(card => {
-		for (let [key, value] of Object.entries(CARDS)) {
-			if (value == card) {
-				count[key] +=1
-				break
-			}
-		}
-	})
+	// // Counts the identical values
+	// hand.forEach(card => {
+	// 	for (let [key, value] of Object.entries(CARDS)) {
+	// 		if (value == card) {
+	// 			count[key] +=1
+	// 			break
+	// 		}
+	// 	}
+	// })
+	// return count
+
+	
+	// Method 2
+	let cardsValue = getCardsValue(cards)
+	let count = new Object()
+	let nbOcc = 0
+	for (let [key, value] of Object.entries(CARDS)) {
+		nbOcc = nbOccurences(cardsValue, value)
+		if (nbOcc > 0) count[key] = nbOcc
+	}
 	return count
+
 }
 
 export { occurences };

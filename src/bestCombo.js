@@ -18,6 +18,8 @@
  * 
  */
 
+
+import { getCardsValue, getCardsType, allIndexOf, nbOccurences } from "../src/partials";
 import { occurences } from "../src/occurences";
 import { orderCards } from "../src/orderCards";
 import { isAFlush } from "../src/isAFlush";
@@ -124,49 +126,6 @@ function bestCombo(cards) {
 	}
 	return hand
 
-}
-
-
-function getCardsValue(cards) {
-	let cardsValue = []
-	let value = ""
-	cards.forEach(
-		card => {
-			value = card.charAt(0)
-			if (value == "1") value = value + "0"
-			cardsValue.push(value)
-		}
-	)
-	return cardsValue
-}
-
-function getCardsType(cards) {
-	let cardsType = []
-	let type = ""
-	cards.forEach(
-		card => {
-			type = card.charAt(card.length-1)
-			cardsType.push(type);
-		}
-	)
-	return cardsType
-}
-
-function allIndexOf(arr, value) {
-	if (arr.indexOf(value) >= 0) {
-		let res = []
-		for( let i = arr.indexOf(value); i >= 0; i = arr.indexOf(value,i+1) ) {
-			res.push(i);
-		}
-		return res
-	}
-	else return false
-}
-
-function nbOccurences(arr, value) {
-	let indexes = allIndexOf(arr, value)
-	if (indexes != false) return indexes.length
-	else return false
 }
 
 export { bestCombo }

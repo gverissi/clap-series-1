@@ -10,13 +10,9 @@
 
 function increment(number) {
 	
-	if (typeof(number) === "number") {
-		return number + 1
-	}
-	else {
-		return number + " doit être un nombre !"
-	}
+	if (typeof(number) === "number") return number + 1
+	else return `${number} doit être un nombre !`
 	
 }
 
-export { increment };
+export { increment }

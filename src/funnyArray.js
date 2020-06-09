@@ -15,9 +15,7 @@ function funnyArray(ary) {
 	let size = ary.length
 	
 	// Empty array
-	if (size === 0) {
-		return "rien"
-	}
+	if (size === 0) return "rien"
 	// Pair
 	else if (size % 2 == 0) {
 		let index = size / 2 - 1
